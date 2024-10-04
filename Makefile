@@ -1,3 +1,6 @@
+genWeakFramework:
+	scipio prepare --weak-link -f
+
 build0: 
 	-rm -Rf .build
 	swift build
@@ -9,7 +12,7 @@ build1:
 
 build: 
 	-rm -Rf .build
-	swift build \
+	WEAK_LINK=1 swift build \
 		-Xlinker "-weak_framework" -Xlinker "WeakDep1" \
 		-Xlinker "-weak_framework" -Xlinker "WeakDep2" 
 build2: 
