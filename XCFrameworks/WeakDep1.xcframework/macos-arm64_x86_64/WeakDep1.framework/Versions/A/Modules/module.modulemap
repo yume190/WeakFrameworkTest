@@ -1,0 +1,4 @@
+framework module WeakDep1 {
+    header "WeakDep1-Swift.h"
+    export *
+}
