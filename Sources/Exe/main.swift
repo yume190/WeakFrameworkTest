@@ -1,10 +1,7 @@
-////
-////  File.swift
-////  WeakFramework
-////
-////  Created by 林煒峻 on 2024/10/4.
-////
-//
-import WeakFramework
-
-weakF()
+#if canImport(WeakDep2)
+import WeakDep2
+    test2()
+    print("have weak lib")
+#else
+    print("No weak lib")
+#endif

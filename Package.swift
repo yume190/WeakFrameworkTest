@@ -11,12 +11,12 @@ var package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "WeakFramework",
-            targets: ["WeakFramework"]),
+        // .library(
+        //     name: "WeakFramework",
+        //     targets: ["WeakFramework"]),
     ],
     dependencies: [
-         .package(path: "WeakDep"),
+        .package(path: "WeakDep"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -42,25 +42,27 @@ if ProcessInfo.processInfo.environment["WEAK_LINK"] != nil {
         .executableTarget(
             name: "Exe",
             dependencies: [
-               "WeakFramework"
-           ]
-        ),
-        .target(
-            name: "WeakFramework",
-            dependencies: [
+                // "WeakFramework"
                 "WeakDep1",
                 "WeakDep2",
             ]
         ),
+        // .target(
+        //     name: "WeakFramework",
+        //     dependencies: [
+        //         "WeakDep1",
+        //         "WeakDep2",
+        //     ]
+        // ),
        
-       .binaryTarget(
-           name: "WeakDep1",
-           path: "XCFrameworks/WeakDep1.xcframework"
-       ),
-       .binaryTarget(
-           name: "WeakDep2",
-           path: "XCFrameworks/WeakDep2.xcframework"
-       ),
+        .binaryTarget(
+            name: "WeakDep1",
+            path: "XCFrameworks/WeakDep1.xcframework"
+        ),
+        .binaryTarget(
+            name: "WeakDep2",
+            path: "XCFrameworks/WeakDep2.xcframework"
+        ),
     ]
 }
 
